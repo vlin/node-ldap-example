@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%- @title %></title>
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <% content %>
+    <% include 'footer' %>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+      Drawer.init();
+    </script>
+  </body>
+</html>

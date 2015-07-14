@@ -12,13 +12,17 @@ var users = require('./routes/users');
 var app = express();
 
 var ECT = require('ect');
-var ectRenderer = ECT({ watch: true, root: __dirname + '/views', ext : '.ect' });
+var ectRenderer = ECT({
+  watch: true,
+  root: __dirname + '/views',
+  ext: '.ect'
+});
 
 app.use(session({
   secret: 'keyboard cat',
   resave: true,
   saveUninitialized: true
-}))
+}));
 
 
 // view engine setup
@@ -29,7 +33,9 @@ app.engine('ect', ectRenderer.render);
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -66,6 +72,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
